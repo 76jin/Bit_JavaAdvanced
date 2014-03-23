@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j021</title>
+</head>
+<body>
+  <h1>DOM API : 엘리먼트 만들기</h1>
+  
+  <!-- form 안에서는 innerHTML 대신에 value 값을 써서 가져올 수 있다. -->
+  <form>
+    <textarea id='message' style='width:400px; height:60px;'></textarea>
+    <input type='button' onclick='addMessage()' value='등록' />
+  </form>
+  
+  <div id='feedList'></div>
+
+
+  <script>
+			"user strict"
+      function addMessage() {
+				var msg = document.getElementById('message');
+				// alert(msg.value);
+				// <p> 태그를 생성하라 -> 내용은 사용자가 입력한 값을 갖는다.
+				// <hr> 사용하여 수평선을 그려라.
+				// textarea를 초기화하라.
+				// 이 태그들을 feedList div에 추가하라.
+				
+				// 1. <p> 태그를 생성.
+				var p1 = document.createElement('p');
+				
+				// 2. <p> 태그에 값을 넣기
+				p1.innerHTML = msg.value;
+				
+				// 3. <textarea> 값 초기화
+				msg.value = "";
+				
+				// 4. <hr>로 수평선 그리기
+				var hr1 = document.createElement('hr');
+				
+				// 5. feedList id로 <div>를 찾는다.
+				// 6. feedList에 <p>와 <hr>을 붙인다.
+				var div1 = document.getElementById('feedList');
+				div1.appendChild(p1);
+				div1.appendChild(hr1);
+				
+				
+				
+				
+			}
+			
+			///////////
+			
+
+			
+		</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

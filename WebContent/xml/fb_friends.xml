@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Friends>
+  <friened>
+    <picture>착한 얼굴.jpg</picture>
+    <name>한석봉</name>
+    <known_friend>함께 아는 친구 7명</known_friend>
+  </friened>
+  
+  <friened>
+    <picture>웃긴 얼굴.jpg</picture>
+    <name>박명수</name>
+    <known_friend>함께 아는 친구 1명</known_friend>
+  </friened>
+  
+  <friened>
+    <picture>잘생겼던 얼굴.jpg</picture>
+    <name>노홍철</name>
+    <known_friend>함께 아는 친구 3,748명</known_friend>
+  </friened>
+</Friends>

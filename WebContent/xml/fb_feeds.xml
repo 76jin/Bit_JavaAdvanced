@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Newsfeeds>
+  <news>
+    <picture>착한 얼굴.jpg</picture>
+    <name>한석봉</name>
+    <current_written_time>9분 전</current_written_time>
+    <content>
+            어머니는 떡을 썰기 시작했고, 한석봉은 글을 쓰기 시작했고, 나는 코딩하기 시작했다. 
+    </content>
+    <share-link>
+      <url>https://www.google.co.kr</url>
+      <home>facebook.com</home>
+      <caption>한석봉 이야기</caption>
+      <content>옛날 조선시대에...</content>
+      <image>http://aaa.bbb.com/c.gif</image>
+    </share-link>
+    <like_result>1명이 좋아합니다.</like_result>
+    <count_comment>댓글 4개</count_comment>
+  </news>
+  
+  <news>
+    <picture>웃긴 얼굴.jpg</picture>
+    <name>박명수</name>
+    <current_written_time>1시간 전</current_written_time>
+    <content>
+            고유 명수 박명수~! 유재석만 없으면 내가 일인자야~~
+    </content>
+    <photos>
+      <url>a.jpg</url>
+      <url>b.jpg</url>
+      <url>c.jpg</url>
+    </photos>
+    <location>
+      <latitude>2.23232</latitude>
+      <longitude>1.23232</longitude>
+    </location>
+    <like_result></like_result>
+    <count_comment>댓글 12,475개</count_comment>
+  </news>
+  
+  <news>
+    <picture>잘생겼던 얼굴.jpg</picture>
+    <name>노홍철</name>
+    <current_written_time>어제 오후 3:59</current_written_time>
+    <content>
+            내가 행복해서 웃는 게 아니야. 웃어서 행복한거야~ 그래 가는거야~~
+    </content>
+    <like_result>좋아요 3.5만개</like_result>
+    <count_comment>댓글 6,146개</count_comment>
+  </news> 
+</Newsfeeds>

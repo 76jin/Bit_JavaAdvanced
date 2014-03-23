@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Newsfeeds>
+  <news>
+    <name>한석봉</name>
+    <current_written_time>9분 전</current_written_time>
+    <content>
+            눈가리고 글쓰는 방법  좀 알려줘요~
+    </content>
+    <associated_project>명필 붓글씨 쓰기</associated_project>    
+    <count_comment>댓글 4개</count_comment>
+  </news>
+  
+  <news>
+    <name>박명수</name>
+    <current_written_time>1시간 전</current_written_time>
+    <content>
+            유재석 옆에 붙어 있는 방법
+    </content>
+    <associated_project>무한도전</associated_project>
+    <count_comment>댓글 5개</count_comment>
+  </news>
+  
+  <news>
+    <name>노홍철</name>
+    <current_written_time>어제 오후 3:59</current_written_time>
+    <content>
+            결혼하고 싶어~~~~~
+    </content>
+    <associated_project>무한도전</associated_project>
+    <count_comment>댓글 1개</count_comment>
+  </news> 
+</Newsfeeds>

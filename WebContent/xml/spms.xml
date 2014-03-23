@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spms>
+  <members>
+    <member>
+      <name>한석봉</name>
+      <email>abc@abc.com</email>
+      <tel>010-1111-2222</tel>
+    </member>
+    
+    <member>
+      <name>박명수</name>
+      <email>abc@abc.com</email>
+      <tel>010-1111-2222</tel>
+    </member>
+    
+    <member>
+      <name>노홍철</name>
+      <email>abc@abc.com</email>
+      <tel>010-1111-2222</tel>
+    </member>
+  </members>
+  
+  <project>
+    <title>명필 붓 쓰는 법</title>
+    <owner-email></owner-email>
+    <description></description>
+    <start-time>2014년 2월 18일</start-time>
+    <end-time>2014년 2월 28일</end-time>
+    <purpose>한석봉처럼 글 쓰는 법을 배우고 익힌다.</purpose>
+    <status></status>
+    <participants>
+      <email></email>
+      <email></email>
+      <email></email>
+    </participants>
+	  <tasks>
+	     <task>먹 잘 가는 방법 익히기</task>
+	       <title></title>
+	       <owner-email></owner-email>
+	       <status>준비</status>
+	     <task>붓 드는 자세 익히기</task>
+	     <task>글씨 씨는 법 익히기</task>
+	     <task>명상 하는 법 익히기</task>
+	  </tasks>
+  </project>
+  
+  <project>
+    <project_info>
+       <name>무한도전</name>
+       <start-time>2014년 2월 18일</start-time>
+       <end-time>2014년 7월 8일</end-time>
+       <purpose>시청자가 원하면 뭐든지 한다.</purpose>
+       <skills>웃기기, 웃기기, 웃기기, 웃기기</skills>
+       <other-info></other-info>
+    </project_info>
+    <works>
+       <function>추적전</function>
+       <function>레슬링</function>
+       <function>봅슬레이</function>
+       <function>가상 결혼</function>
+    </works>
+  </project>
+</spms>

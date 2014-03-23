@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j014</title>
+</head>
+<body>
+  <h1> 생성자 함수 : 객체를 초기화 하는 함수 </h1>
+  <script>
+  "use strict";
+  
+  
+  // 1. return 빈 객체
+  // 2. 빈 객체를 채워~
+  // 팩토리 메서드를 이용한 객체 생성 방법 개선
+  function makeStudent(name, kor, eng, math) {
+	  return {
+		  "name" : name,   // label name: value // label name은 ""로 
+		  "kor"  : kor, 
+		  "eng"  : eng, 
+		  "math" : math
+		};
+  }
+  
+  // 빈객체를 초기화 하는 함수.
+  // 생성자 함수는 대문자로 쓰는게 관습.
+  function Student(name, kor, eng, math) {
+	  // 빈 객체를 초기화 해야 한다.  ==> 생성자 함수 : 빈객체를 초기화 하는 함수
+	  // 빈 객체를 가리키는 특별한 변수 => this
+	  // 반드시 new 명령어 다음에 호출해야만 this 변수를 사용할 수 있다.
+	  // this.라벨명 = 값; => this 객체에 값을 저장한다. 저장할 때 이름은 라벨명을 사용한다.
+	  this["name"] = name;
+	  this.kor = kor;
+	  this.eng = eng;
+	  this.math = math;
+  }
+
+  // 객체 배열
+  var students = [ new Student('홍길동', 100, 90, 80),
+                   new Student('임꺽정', 90, 100, 95),
+                   new Student('장길산', 50, 95,  60)];
+  
+/*                 makeStudent('장길산', 50, 95,  60)]; */
+/*                {name: '장길산', kor:  95, eng: 50, math:  65}]; */
+  
+  console.log("----------------------------------------------")
+  students.forEach( function(student) {
+	 console.log(student.name,
+			         student.kor,
+			         student.eng,
+			         student.math);
+  } );
+  
+  
+  // 문제: 위의 코드를 forEach() 사용하는 코드로 바꾸시오.
+  // 1. 배열을 적어.
+  // 2. forEach를 호출해.
+  // 3. forEach에서 매번 사용할 함수 function을 적어.
+  // 4. function의 매개변수를 선언해.
+  // 5. 사용할 function을 정의해. 끝!
+  
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j008</title>
+</head>
+<body>
+  <h1> 함수와 명령어 실행 순서 </h1>
+  <script>
+  "use strict";
+
+  // *** 자바 스크립트 명령어 실행 순서 ***
+  //  1) 선언문을 찾아 먼저 실행: (변수 및 함수 선언)
+  //  2) 다시 처음부터 표현식(expression) 명령어 실행: (할당문, 연산, 함수 호출, 조건문, 반복문 등)
+  
+  // 문제: age라는 변수를 선언하지 않고 값을 출력
+  
+  // *** 예외 처리 구문 ***
+  try {                       // 오류가 발생할 가능성이 있는 명령어를 두는 장소.
+	  console.log("age=", age); // 오류: age is not defined.
+  } catch(err) {              // 오류가 발생했을 때 그 오류를 처리할 명령어를 두는 장소.
+	                            // 파라미터값은 오류정보를 담고 있는 객체이다.
+	                            // 오류정보 객체에는 message라는 이름으로 오류 내용이 들어있다. 
+	  console.log(err);
+  }
+  // var age;
+  
+  // 문제: name 라는 변수를 선언하지 않고 값 출력, 출력문 다음에 name 변수 선언.
+  console.log("name=", name); // name = undefined -> name 변수가 있는데 값이 없다.
+  var name = '홍길동';
+  console.log("name=", name); // name = 홍길동
+  
+  // 함수 정의 전에 호출 명령 수행
+  console.log( 'before plus()', plus(10, 20) );
+  try {
+    console.log( 'before plus2()', plus2(10, 20) ); // 오류! 
+  } catch (err) {
+	  console.log(err.message);
+  }
+  
+  // 함수 정의
+  // 단점: 무조건 window 객체에 보관된다.
+  // 장점: 선언문은 표현식보다 먼저 수행됨.
+  function plus(a, b) {
+	  return a + b;
+  }
+  
+  // 실무에서는 아래의 표현식으로 함수를 정의하는 방법을 많이 사용.
+  // 이유? 임의의 객체에 함수를 저장할 수 있다.
+  var plus2 = function(a, b) {
+	  return a + b;
+  };
+  
+  var plus3 = plus;
+  
+  // 함수 정의 후 호출 명령 수행
+  console.log( 'after plus()', plus(10, 20) );
+  console.log( 'after plus2()', plus2(10, 20) );
+  console.log( 'after plus3()', plus3(10, 20) );
+  console.log( plus3 );
+   
+   
+   /*
+   console.log("\n if (조건) 명령문 -----------------------------");
+   */
+	
+	</script>
+</body>
+</html>

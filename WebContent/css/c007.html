@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- 엘리먼트의 배치
+  1. 공중 부양
+  ; 웹 브라우저는 HTML에 작성된 순서대로 왼쪽에서 오른쪽으로 배치한다. 끝을 만날 때까지.
+  ; 위에서 아래로 배치한다.
+  ; float : left 또는 right => 출력순서에서 탈출하여 공중 부양한다. 왼쪽 또는 오른쪽으로 붙인다.
+  ; 출력될 그 위치에서 공중 부양한 후 좌우로만 이동 가능
+           아래쪽에 있는걸 위로 땡겨서 먼저 출력하고 float으로 띄우서 좌/우로 붙인다.
+      아래로 이동시켰던 문단이 위로 올라오게 되고, 
+  * clear 속성
+    => 공중 부양으로 점유된 공간을 피하는 명령
+  
+  2. 절대 좌표 지정
+  3. 상대 좌표 지정
+  4. 웹 브라우저에 고정
+    
+ -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CSS007</title>
+  <style type="text/css">
+    #d1 {
+      border: 1px solid red;
+      border-left: 5px solid red;
+      border-right: 20px solid red;
+      padding-left: 10px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      margin-left: 190px;
+    }
+    
+    #d2 {
+      width: 180px;
+/*    height: 180px;        */
+      border: 1px dotted blue;
+      margin-top: 15px;
+      float: left;
+    }
+    
+    #footer {
+      border: 1px solid green;
+      font-size: 80%;
+      text-align: center;
+      clear: left;
+    }
+  </style>
+</head>
+<body>
+    오호라.. 비트교육센터...
+
+  <div id="d2">
+    <h1 id="header05" class="c1">테스트5</h1>
+    <p class="c1">테스트...05</p>
+    <h1 id="header06">테스트6</h1>
+    <p>테스트...06</p>
+    
+    <div id="d21">
+     <h1>테스트7</h1>
+     <p>오호라...07</p>
+    </div>
+    
+		<h1 id="header08">테스트8</h1>
+		<p>테스트...08</p>
+		<h1 id="header09">테스트9</h1>
+		<p>테스트...09</p>
+		<h1 id="header10">테스트10</h1>
+		<p>테스트...10</p>
+		<h1 id="header11">테스트11</h1>
+		<p>테스트...11</p>
+	</div>
+
+
+	<div id="d1">
+	  <div id="d11">
+		  <h1 id="header01" class="c1 c2">테스트1</h1>
+		  <p class="c1 c2">라인, 카카오톡, 위챗 등 아시아 지역을 기반으로 서구 시장 진출을 노리던 모바일 메신저에 비상이 걸렸다.  
+이들은 스마트폰의 핵심 기능인 커뮤니케이션 길목을 장악해 사용자를 모으고 게임 등 부가 서비스와 콘텐츠를 더하며 소셜 플랫폼으로 진화하는 전략을 구사해왔다.
+      </p>
+		  <h1 id="header02">테스트2</h1>
+		  <p>와츠앱 인수로 페이스북이 SNS와 메신저를 아우르는 압도적 모바일 플랫폼 구축 의지를 분명하게 밝히면서,  
+라인과 카카오의 글로벌 확장 전략은 위기를 맞을 가능성이 높다.
+      </p>
+	  </div>
+	  
+	  <div id="d12">
+		  <h1 id="header03" class="c2">테스트3</h1>
+		  <p class="c2">페이스북은 라인과 카카오를 벤치마킹해 자체 메신저를 강화하며 메시지 시장을 노려왔으며, 와츠앱까지 인수해 강력한 무기를 손에 쥐게 됐다.
+      </p>
+		  <h1 id="header04">테스트4</h1>
+		  <p>황인준 네이버 CFO는 최근 컨퍼런스콜에서 “미국 등 서구에서 와츠앱 점유율이 높고 페이스북도 메신저 역할을 하며, 스냅챗 등 다른 기능의 SNS도 많이 있다”며
+“라인과 서비스 방향은 다른 만큼, 자체 차별성으로 승부하는 수밖에 없다고 본다”고 말했다.
+      </p>
+	  </div>
+	</div>
+	
+	<div id="footer">
+	<p>이 예제의 모든 권한은 Java48기에 있습니다. </p>
+	<address>서울시 서초구 서초동 비트빌딩 3층</address>
+	</div>
+  
+</body>
+</html>

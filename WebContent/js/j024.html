@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j024</title>
+</head>
+<body>
+  <h1>DOM API : 엘리먼트에 속성 추가하기</h1>
+
+  <script>
+			"user strict"
+			
+			// img 태그 추가하기
+			var img = document.createElement('img');
+			document.body.appendChild(img);
+			
+			// 엘리먼트에 원래 존재하는 속성의 값을 다룰 때는 엘리먼트명.속성명으로 간단히 사용 가능. 
+			img.src = 'p3.jpg';  // 기존의 속성은 이렇게!!!
+			
+			// 엘리먼트의 없는 속성을 다음과 같은 간단한 방법으로 넣을 수 없다! => stAttribute() 사용해야 한다!!!
+			img['data-no'] = 1997;
+			
+			
+			var img2 = document.createElement('img');
+			document.body.appendChild(img2);
+			img2.setAttribute('src', 'p2.jpg');
+			img2.setAttribute('data-no', 1994);  // 없는 속성 추가는 이렇게!!!
+			
+			
+			// 임의의 태그를 추가할 때는 data-xxx 이름으로 지으라고 권고함.
+			
+			// 참고
+			// 엘리먼트의 onclick 속성에 함수를 등록하면, 사용자가 해당 엘리먼트를 클릭했을 때 그 함수가 호출된다.
+			img2.onclick = function() {
+				location.href = 'http://image.search.naver.com/search.naver?where=image&query=%EB%B0%95%EB%B3%B4%EC%98%81&ie=utf8&sm=tab_she&qdt=0';
+			};
+			
+			
+			var a=0;
+			function e(){
+				a = 5;
+				var b = a;
+				return b;
+			}
+			
+			var d = e();
+			
+			console.log(d);
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

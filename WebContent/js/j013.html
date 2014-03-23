@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j013</title>
+</head>
+<body>
+  <h1> 팩토리 매서드를 이용한 객체 생성 </h1>
+  <script>
+  "use strict";
+  
+  
+  // 1. return 빈 객체
+  // 2. 빈 객체를 채워~
+  // 팩토리 메서드를 이용한 객체 생성 방법 개선
+  function makeStudent(name, kor, eng, math) {
+	  return {
+		  "name" : name,   // label name: value // label name은 ""로 
+		  "kor"  : kor, 
+		  "eng"  : eng, 
+		  "math" : math
+		};
+  }
+
+  // 객체 배열
+  var students = [ makeStudent('홍길동', 100, 90, 80),
+                   makeStudent('임꺽정', 90, 95, 100),
+                   makeStudent('장길산', 50, 95,  60)];
+/*                {name: '장길산', kor:  95, eng: 50, math:  65}]; */
+  
+  console.log("----------------------------------------------")
+  for (var i=0; i < students.length; i++) {
+	  console.log(students[i].name,
+			          students[i].kor,
+			          students[i].eng,
+			          students[i].math);
+  }
+  
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j012</title>
+</head>
+<body>
+  <h1> 객체 응용 </h1>
+  <script>
+  "use strict";
+
+  // 객체 배열
+  var students = [
+                  {name: '홍길동', kor: 100, eng: 90, math:  80},
+                  {name: '임꺽정', kor:  90, eng: 95, math: 100},
+                  {name: '장길산', kor:  95, eng: 50, math:  65}];
+  
+  console.log("----------------------------------------------")
+  for (var i=0; i < students.length; i++) {
+	  console.log(students[i].name,
+			          students[i].kor,
+			          students[i].eng,
+			          students[i].math);
+  }
+  
+  // 문제: 위의 코드를 forEach() 사용하는 코드로 바꾸시오.
+  // 1. 배열을 적어.
+  // 2. forEach를 호출해.
+  // 3. forEach에서 매번 사용할 함수 function을 적어.
+  // 4. function의 매개변수를 선언해.
+  // 5. 사용할 function을 정의해. 끝!
+  console.log("forEach() ----------------------------------------------")
+  students.forEach(function(student) {
+	  console.log(student.name, student.kor, student.eng, student.math);
+	  });
+  
+   /*
+   console.log("\n if (조건) 명령문 -----------------------------");
+   */
+	
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

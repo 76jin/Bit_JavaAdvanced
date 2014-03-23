@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- 폰트 다루기
+  1. font-family :
+    => font-family: 폰트, 폰트, 폰트, 패밀리;
+    : 왼쪽부터 순서대로 폰트를 찾는다.
+    
+  2. font-size :
+    : 폰트의 크기(높이)를 지정
+      1) 상수값:
+        xx-small, x-small, small(default), medium, large, x-large, xx-large
+      2) pixel: 14px, 20px, ...
+      3) 백분율: 120%, 80%
+      4) 배수:  1.2em, 0.8em
+      : 실무권고 => body에 기준 크기를 상수로 정의한다.
+                                    나머지 엘리먼트는 배수나 백분율을 사용하여 지정.
+                                    가능하면 pixel을 사용하지 마라!!!
+                                    
+  3. font-weight : lighter, normal(default), bold, bolder
+    : font의 두께를 지정
+    
+  4. test-decoration : none, underline, overline, line-through, blink(되는 브라우저 따로 있음)
+  
+  5. font-style : italic, oblique, normal
+    italic => 기울임 폰트를 지정, (폰트파일에 기울임체가 있어야 한다.)
+    oblique => 폰트 파일에 기울임체가 없어도 강제로 기울린다.(출력이 거칠다. 계단현상?)
+  
+  6. font-color
+    1) 상수값 사용 : silver, aqua, black, white ...
+    2) rgb(백분율,백분율,백분율): rgb(100%, 56%, 90%)
+    3) rgb(값, 값, 값): rgb(0~255, 0, 255)
+    4) #rrggbb : #ff0000 (red) => #f00
+      => #445566 => #456
+      
+ -->
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CSS004</title>
+  <style type="text/css">
+    body {
+      font-family: Arial, Serif;
+      font-size: small;
+    }
+    
+    h1 {
+      font-size: 180%;
+    }
+    
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+    오호라.. 비트교육센터...
+	<div id="d1">
+	  <div id="d11">
+		  <h1 id="header01" class="c1 c2">테스트1</h1>
+		  <p class="c1 c2">테스트...01</p>
+		  <h1 id="header02">테스트2</h1>
+		  <p>테스트...02</p>
+	  </div>
+	  
+	  <div id="d12">
+		  <h1 id="header03" class="c2">테스트3</h1>
+		  <p class="c2">테스트...03</p>
+		  <h1 id="header04">테스트4</h1>
+		  <p>테스트...04</p>
+	  </div>
+	</div>
+  
+  <div id="d2">
+	  <h1 id="header05" class="c1">테스트5</h1>
+	  <p class="c1">테스트...05</p>
+	  <h1 id="header06">테스트6</h1>
+	  <p>테스트...06</p>
+	  
+	  <div id="d21">
+	   <h1>테스트7</h1>
+	   <p>오호라...07</p>
+	  </div>
+  </div>
+  
+</body>
+</html>

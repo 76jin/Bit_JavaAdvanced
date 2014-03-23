@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>j015</title>
+</head>
+<body>
+  <h1>객체 구성원: 데이터와 메서드(함수)</h1>
+  <script>
+			"use strict";
+			
+			var sum = 0;
+			var note = '';
+			function plus(value) {
+				sum += value;
+				note += ' + ' + value;
+			}
+			
+			function minus(value) {
+				sum -= value;
+        note += ' - ' + value;
+			}
+			
+			function multiple(value) {
+				sum *= value;
+        note += ' * ' + value;
+			}
+			
+			function divide(value) {
+				sum /= value;
+        note += ' / ' + value;
+			}
+			
+			// 초기값 : sum에 대해서 value 값으로 초기화
+			function init(value) {
+				if (arguments.length == 0) {  // *** 중요 ***
+					sum = 0;
+					note = '';
+				}
+				else {
+					sum = value;
+					note = String(value);
+				}
+			}
+			
+			// 3 * 2 + 7 - 5 = 8
+			init(3);
+			multiple(2);
+			plus(7);
+			minus(5);
+			console.log('sum:', sum);
+			
+			// 문제 다음과 같이 결과를 출력하는 함수를 만들라.
+			// 3 * 2 + 7 - 5 = 8
+			// 함수 이름은 printResult
+			
+			function printResult() {
+			  console.log(note + ' = ', sum );
+			}
+			
+			printResult();
+			
+			
+
+
+			// 문제: 위의 코드를 forEach() 사용하는 코드로 바꾸시오.
+			// 1. 배열을 적어.
+			// 2. forEach를 호출해.
+			// 3. forEach에서 매번 사용할 함수 function을 적어.
+			// 4. function의 매개변수를 선언해.
+			// 5. 사용할 function을 정의해. 끝!
+		</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

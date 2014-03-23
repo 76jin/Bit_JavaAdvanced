@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>카드 짝맞추기 게임</title>
+<link type="text/css" rel="stylesheet" href="cardgame.css" />
+
+</head>
+<body>
+
+
+
+<!--
+  1. 게임에 사용할 카드 이미지 배열 선언
+  2. 카드정보( 위치, 이미지, 등 )를 나타낼 Card객체 선언
+  3. 필요 변수 선언
+  4. 게임초기화( 카드리스트를 만들고, 랜덤하게 순서섞기 )
+  5. 카드 클릭 시 카드 뒤집기
+  6. 클릭 한 카드가 2개가 되면 뒤집힌 카드비교
+  7. 같은 카드면 제거하면서 성공한 count값 1증가, 아니면 다시 원위치
+  8. count값이 카드쌍과 동일하면 완료를 알림 
+-->
+
+  <h1>신나는 카드 게임</h1>
+  <div id='gameBoard'>
+	  <div id='card01' class='btn'></div>
+	  <div id='card02' class='btn'></div>
+	  <div id='card03' class='btn'></div>
+	  <div id='card04' class='btn'></div>
+	  <div id='card05' class='btn'></div>
+	  <div id='card06' class='btn'></div>
+	  
+	  <div id='card07' class='btn'></div>
+	  <div id='card08' class='btn'></div>
+	  <div id='card09' class='btn'></div>
+	  <div id='card10' class='btn'></div>
+	  <div id='card11' class='btn'></div>
+	  <div id='card12' class='btn'></div>
+	  
+	  <div id='card13' class='btn'></div>
+	  <div id='card14' class='btn'></div>
+	  <div id='card15' class='btn'></div>
+	  <div id='card16' class='btn'></div>
+	  <div id='card17' class='btn'></div>
+	  <div id='card18' class='btn'></div>
+	  
+	  <div id='card19' class='btn'></div>
+	  <div id='card20' class='btn'></div>
+	  <div id='card21' class='btn'></div>
+	  <div id='card22' class='btn'></div>
+	  <div id='card23' class='btn'></div>
+	  <div id='card24' class='btn'></div>
+  </div>
+
+
+  <!-- JavaScript Code -->  
+  <!-- <script src="./cardgame.js"></script> -->
+  <script>
+  
+/*
+  1. 게임에 사용할 카드 이미지 배열 선언
+  2. 카드정보( 위치, 이미지, 등 )를 나타낼 Card객체 선언
+  3. 필요 변수 선언
+  4. 게임초기화( 카드리스트를 만들고, 랜덤하게 순서섞기 )
+  5. 카드 클릭 시 카드 뒤집기
+  6. 클릭 한 카드가 2개가 되면 뒤집힌 카드비교
+  7. 같은 카드면 제거하면서 성공한 count값 1증가, 아니면 다시 원위치
+  8. count값이 카드쌍과 동일하면 완료를 알림 
+*/ 
+  
+  /* 1. 게임에 사용할 카드 이미지 배열 선언  */
+  var imageList = [ "./image/01.png",   //  1 번째 카드, 0 번째 배열
+                    "./image/02.png",   //  2 번째 카드, 1 번째 배열
+                    "./image/03.png",   //  3 번째 카드, 2 번째 배열
+                    "./image/04.png",   //  4 번째 카드, 3 번째 배열
+                    "./image/05.png",   //  5 번째 카드, 4 번째 배열
+                    "./image/06.png",   //  6 번째 카드, 5 번째 배열
+                    "./image/07.png",   //  7 번째 카드, 6 번째 배열
+                    "./image/08.png",   //  8 번째 카드, 7 번째 배열
+                    "./image/09.png",   //  9 번째 카드, 8 번째 배열
+                    "./image/10.png",   // 10 번째 카드, 9 번째 배열
+                    "./image/11.png",   // 11 번째 카드, 10번째 배열
+                    "./image/12.png",   // 12 번째 카드, 11번째 배열
+                    
+                    "./image/01.png",   //  1 번째 카드, 12번째 배열
+                    "./image/02.png",   //  2 번째 카드, 13번째 배열
+                    "./image/03.png",   //  3 번째 카드, 14번째 배열
+                    "./image/04.png",   //  4 번째 카드, 15번째 배열
+                    "./image/05.png",   //  5 번째 카드, 16번째 배열
+                    "./image/06.png",   //  6 번째 카드, 17번째 배열
+                    "./image/07.png",   //  7 번째 카드, 18번째 배열
+                    "./image/08.png",   //  8 번째 카드, 19번째 배열
+                    "./image/09.png",   //  9 번째 카드, 20번째 배열
+                    "./image/10.png",   // 10 번째 카드, 21번째 배열
+                    "./image/11.png",   // 11 번째 카드, 22번째 배열
+                    "./image/12.png"    // 12 번째 카드, 23번째 배열
+                    ];
+
+  // 카드를 어떻게 배치할지 정보. (이 값을 바꾸면 카드가 섞이게 됨)
+  var cardList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                  13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  
+  
+  // 2. 카드정보( 위치, 이미지, 등 )를 나타낼 Card객체 선언
+			function Card(id, hiddenImage) {
+				this.index = Number(id.substring(6, 4)) - 1;
+				this.id = id;
+				this.hiddenImage = hiddenImage;
+				this.coverImage = '00.jpg';
+				this.isClicked = false;
+				this.same = false;
+				
+//				console.log(this.index, this.id);
+				
+				this.addListener = function(divListItem) {
+          divListItem.style.backgroundImage = 'url(' + this.hiddenImage + ')';
+					console.log(divListItem);
+		//			console.log(divListItem.style.backgroundImage);
+				};
+				
+			}
+
+/* 			Card.prototype.addListener = function(divListItem) {
+//				divListItem.style.backgroundImage = 'url(' + this.hiddenImage + ')';
+				console.log(divListItem);
+				console.log('url(' + this.hiddenImage + ')'); 
+				  
+ 				divListItem.addEventListener('click', function(divListItem) {
+					divListItem.style.backgroundImage = 'url(' + this.hiddenImage + ')';
+		    });
+			}; */
+
+			// 3. 필요 변수 선언
+			var g_count = 0;
+			var g_countClick = 0;
+			var g_openCardList = [];
+			
+			var imageCard = new Array(24);   // 가장 중요한 카드
+		  var firstArgu = new Array(24);
+	    var divList = document.querySelectorAll('div.btn');
+			
+			// 4. 게임초기화( 카드리스트를 만들고, 랜덤하게 순서섞기 )
+
+		  
+			for (var i = 0; i < imageCard.length; i++) {
+				// div에서 id를 가져와서 Card의 첫번째 매개변수로 사용.
+				// imageList에서 값을 가져와 Card의 두번째 매개변수로 사용.
+
+//				for (var j = 0; j < divList.length; j++) {
+					/* 		  console.log(divList[i].id); */
+					
+					// 카드 리스트 만들고, 순서 정하기.(랜덤 구현 필요)
+					firstArgu[i] = divList[i].id;
+					imageCard[i] = new Card(firstArgu[i], imageList[cardList[i] - 1]);
+					
+					//console.log(i, imageCard[i].id, imageCard[i].hiddenImage);
+					
+					// addListener 추가 - click시 동작 추가를 위해
+//					divList[i].onclick = imageCard[i].addListener(divList[i]);
+//					divList[i].onclick = imageCard[i].addListener(divList[i]);
+					
+//	  	      divList[i].addEventListener('click', imageCard[i].addListener(divList[i]));
+
+          // 5. 카드 클릭 시 카드 뒤집기
+          divList[i].onclick = function() {
+        	  
+        	  // 마우스 클릭 3번째는 처음부터 다시 시작을 의미.
+        	  g_countClick++;
+        	  
+        	  if (g_countClick >= 3) {
+        		  g_countClick = 1;
+        		  g_openCardList = [];
+        	  }
+        	  
+        	  
+        	  // 클릭한 카드의 번호 구하기(자주 사용하는 변수)
+        	  var index = Number(this.id.substring(6, 4)) - 1;
+        	  console.log('click index:', index);
+        	  
+        	  // 그림 맞췄으면 배경그림 안바꿈
+        	  if( imageCard[index].same == true ) {
+        		  console.log('image card is same!!');
+        		  return;
+        	  }
+        	  
+        	  
+         	  // 그림 2개를 클릭했으면 리턴
+         	  if(g_openCardList.length == 2) {
+         		  console.log('여긴 어디? 난 누구?');
+        		  return;
+         	  }
+        	  
+        	  ///////////////////////////////// 진행중
+        		// 클릭된 카드가 아니면 오픈.
+        		if( cardValidation(imageCard[index].index) ) {
+              drawOpenCard( index, imageCard[index] ); 
+              g_openCardList.push( imageCard[index] );
+              console.log('g_openCardList.push:', g_openCardList)
+        		}
+        	  
+        	  
+        	  // 그림 2개를 클릭했으면 비교
+        	  if(g_openCardList.length == 2) {
+        		  console.log('g_openCardList.length == 2');
+        		  matchOpenCardList(index);
+        		  
+        		  var isCompleted = checkComplete();
+        		  if (isCompleted == true)
+        			  alert('게임이 끝났어요');
+        			  
+        	  }
+        	  
+        	  // 클릭한 그림이 1개면 
+        	  
+
+            
+            // 연속해서 같은 그림 맞추면, 두 칸 모두 그림 출력.
+//            g_countClick
+//            if (imageCard[index].isClicked)
+            
+            
+          }; // onclick end
+        	  
+        	  
+
+/*             var num = i;
+ 	  	      divList[i].addEventListener('click', function() {
+ 	  	        var number = num;
+ 	  	        console.log(i, num, number); */
+// 	  	    	  this.style.backgroundImage = 'url(' + imageCard[number].hiddenImage + ')';
+ 	  	    //      console.log(divListItem.style.backgroundImage);
+// 	  	        });
+					
+//            divList[i].style.backgroundImage = 'url("./image/01.png")';
+/* 					console.log(divList[i].style.backgroundImage); */
+// 				  divList[i].addEventListener('click', function(divList, imageCard) {
+//					  divList.style.backgroundImage = 'url(' + imageCard.hiddenImage + ')';
+// 					  document.body.removeChild(this);
+//				  });
+					
+//				}
+			}
+
+
+			//백그라운드 이미지를 삽입
+			var divList = document.querySelectorAll('div.btn');
+			for (var i = 0; i < divList.length; i++) {
+/* 				divList[i].style.backgroundImage = 'url(' + imageList[i] + ')'; */
+	        divList[i].style.backgroundImage = 'url("./image/00.jpg")';
+			}
+			
+			// 게임 준비 완료 //////////////////////////////////
+			
+    /*
+     * checkList 유효성 검사 
+     * checkList의 길이가 2일 경우 
+     * 일치카드이면 제거 아니면 초기화
+     * 같은 카드이면 두 카드의 index를 빼면 절대값으로 12가 나오게 되어 있음.
+     **/			
+			function matchOpenCardList(index) {
+				// To do
+				var matchNumber = Math.abs(g_openCardList[0].index - g_openCardList[1].index);
+			  console.log('matchNumber:', matchNumber, 'g_openCardList:', g_openCardList[0].index, g_openCardList[1].index);
+			  if (matchNumber % 12 == 0){
+				  console.log('drawClearCard()');
+	        drawClearCard( index, g_openCardList[0] );
+	        drawClearCard( index, g_openCardList[1] );
+	        g_count++;
+			  } else {
+				  // What to do?
+				  console.log('What to do?');
+			  }
+			  
+			  g_openCardList = [];
+			}
+			
+			function checkComplete() {
+				// To do
+				console.log('call checkComplete');
+				if (g_count == 12)
+					return true;
+				
+				return false;
+			}
+			
+		   /* 제거된 카드 그리기 */
+	    function drawClearCard( index, card ){
+	    	console.log('call drawClearCard');
+	    	console.log('index:', card.index, 'card.hiddenImage', card.hiddenImage);
+         divList[card.index].style.backgroundImage = 'url(' + card.hiddenImage + ')';
+         card.same = true;
+	    };
+			
+		   /* 
+	     * 카드 유효성 검사
+	     * 이미 오픈된 카드와 중복인지 아닌지 체크
+	     */
+	    function cardValidation( index ){
+	      var i;
+	      var same;
+
+	      for ( i=0; i<g_openCardList.length ; i++ ){
+	    	  console.log('index:', index, 'openCard:', i, g_openCardList[i].index);
+	    	  if (g_openCardList[i].index == index) {
+	    		  // 같은 그림 연속해서 두번 누르면 그림만 보여주고, 아무것도 안함.
+	    		  if (g_countClick == 2)
+	    			  drawOpenCard( index, imageCard[index] );
+	    		  
+	    			return false;
+	    	  }
+	      }
+	      
+	      return true;
+	    };
+	    
+	       /* 
+	       * 클릭한 카드 보여주기.
+	       * 그림 틀렸을 시 0.5초 동안만 hiddenImage 보여주기
+	       */	    
+	    function drawOpenCard(index, imageCard) {
+	    	 if (imageCard.same == true) {
+	    		 console.log('return as same true');
+	    		 return;
+	    	 }
+	    	 
+         divList[index].style.backgroundImage = 'url(' + imageCard.hiddenImage + ')';
+         imageCard.isClicked = true;
+        
+         var cardPiece  = divList[index];
+         setTimeout(function () {
+        	 if (imageCard.same != true)
+            cardPiece.style.backgroundImage = 'url("./image/00.jpg")';
+         }, 500);
+	    }
+			
+
+			// 1. div.btn 찾는다.
+			/* var divList = document.querySelectorAll('.btn'); */
+			/* 		      var divList = document.getElementsByTagName('div');
+			 for (var i = 0; i < divList.length; i++) {
+			 divList[i].addEventListener('click', function() {
+			 document.body.removeChild(this);
+			 });
+			 } */
+
+			// onclick : 변수명, property, 속성임
+			// click : 이벤트명
+			// addEventListener : 여러개의 함수를 등록할 수 있음.
+			/*
+			 //3초 후에 함수를 실행합니다.
+			 setTimeout(function () {
+			 alert('3초가 지났습니다. ㅇㅂㅇ');
+			 }, 3000);*/
+
+			/*   cardList.push(["icon01.png","icon01.png"]);
+			 cardList.push(["icon02.png","icon02.png"]);
+			 cardList.push(["icon03.png","icon03.png"]);
+			 cardList.push(["icon04.png","icon04.png"]);
+			 cardList.push(["icon05.png","icon05.png"]);
+			 */
+		</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
