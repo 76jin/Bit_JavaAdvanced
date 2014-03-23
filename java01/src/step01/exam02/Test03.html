@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인스턴스 변수</title>
+</head>
+<body>
+<h1>인스턴스 변수 연습</h1>
+<script>
+  function Calculator03 {
+    this.result = 0;
+  }
+  
+  Caculator03.prototype.init = function(value) {
+    this.result = value;
+  }
+  
+  Caculator03.prototype.plus = function(value) {
+    this.result += value;
+  }
+  
+  Caculator03.prototype.minus = function(value) {
+    this.result -= value;
+  }
+  
+  Caculator03.prototype.multiple = function(value) {
+    this.result *= value;
+  }
+  
+  Caculator03.prototype.divide = function(value) {
+    this.result /= value;
+  }
+  
+  var calc1 = new Calculator03();
+  var calc2 = new Calculator03();
+  
+  //10 + 30 - 4 * 7 = 252 (연산자 우선순위 고려하지 않음)
+  // 5 * 3 - 6 / 3 = 3
+  calc1.init(10); // this.result = 10;
+  calc2.init(5);  // this.result = 5;
+  
+  calc1.plus(30);
+  calc2.multiple(3);
+  
+  calc1.minus(4);
+  calc2.minus(6);
+  
+  calc1.multiple(7);
+  calc2.divide(3);
+  
+  console.log('calc1 result: ' + calc1.result);
+  console.log('calc2 result: ' + calc2.result);
+  
+</script>
+</body>
+</html>
