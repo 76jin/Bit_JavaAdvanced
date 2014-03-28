@@ -27,14 +27,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-/* 
- * Frame에 들어갈 화면
- * 	1) MenuPanel: 메뉴 출력 화면
- * 	2) StudentPanel: 학생 관리 화면
- * 	3) ScorePanel: 점수 관리 화면
- * 
- */
-public class StudentMgtSystem extends Frame implements ActionListener {
+public class StudentMgtSystem04 extends Frame{
 	static Scanner scanner = new Scanner(System.in);
 	Panel menuPanel = new Panel();
 	Button btnStudentMgt = new Button("학생관리");
@@ -45,7 +38,7 @@ public class StudentMgtSystem extends Frame implements ActionListener {
 		return scanner.nextLine().toLowerCase(); 
 	}
 	
-	public StudentMgtSystem() {
+	public StudentMgtSystem04() {
 		super("학생관리시스템");	// 호출할 수퍼 클래스 생성자를 지정할 수 있음.
 		//super();	// 호출할 수퍼 클래스 생성자를 지정하지 않으면 기본 생성자 호출.
 		//setTitle("학생관리시스템");	// 기본 생성자 호출 후 setTitle()을 호출해도 됨.
@@ -59,8 +52,21 @@ public class StudentMgtSystem extends Frame implements ActionListener {
 		
 		menuPanel.setPreferredSize(new Dimension(70, 70));	// 이랬으면 하는 크기
 		
-		btnStudentMgt.addActionListener(this);
-		btnScoreMgt.addActionListener(this);
+		btnStudentMgt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "오호라 이거야..");
+			}
+		});
+		
+		btnScoreMgt.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "오호라 이거야..2");
+			}
+		});
 		
 		menuPanel.add(btnStudentMgt);
 		menuPanel.add(btnScoreMgt);
@@ -69,20 +75,8 @@ public class StudentMgtSystem extends Frame implements ActionListener {
 		add(menuPanel);
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource().equals(btnStudentMgt)) {
-			JOptionPane.showMessageDialog(null, "학생관리");
-		} else if (e.getSource().equals(btnScoreMgt)) {
-			JOptionPane.showMessageDialog(null, "점수관리");
-		} else {
-			JOptionPane.showMessageDialog(null, "여긴 어디?");
-		}
-	}
-	
 	public static void main(String[] args) {
-		StudentMgtSystem f = new StudentMgtSystem();
+		StudentMgtSystem04 f = new StudentMgtSystem04();
 		f.setVisible(true);
 	}
 	

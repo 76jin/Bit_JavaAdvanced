@@ -27,14 +27,8 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-/* 
- * Frame에 들어갈 화면
- * 	1) MenuPanel: 메뉴 출력 화면
- * 	2) StudentPanel: 학생 관리 화면
- * 	3) ScorePanel: 점수 관리 화면
- * 
- */
-public class StudentMgtSystem extends Frame implements ActionListener {
+// Frame의 자식이면서, ActionListener 규칙을 따르는 클래스이다.
+public class StudentMgtSystem05 extends Frame implements ActionListener {
 	static Scanner scanner = new Scanner(System.in);
 	Panel menuPanel = new Panel();
 	Button btnStudentMgt = new Button("학생관리");
@@ -45,7 +39,7 @@ public class StudentMgtSystem extends Frame implements ActionListener {
 		return scanner.nextLine().toLowerCase(); 
 	}
 	
-	public StudentMgtSystem() {
+	public StudentMgtSystem05() {
 		super("학생관리시스템");	// 호출할 수퍼 클래스 생성자를 지정할 수 있음.
 		//super();	// 호출할 수퍼 클래스 생성자를 지정하지 않으면 기본 생성자 호출.
 		//setTitle("학생관리시스템");	// 기본 생성자 호출 후 setTitle()을 호출해도 됨.
@@ -82,7 +76,7 @@ public class StudentMgtSystem extends Frame implements ActionListener {
 	}
 	
 	public static void main(String[] args) {
-		StudentMgtSystem f = new StudentMgtSystem();
+		StudentMgtSystem05 f = new StudentMgtSystem05();
 		f.setVisible(true);
 	}
 	
