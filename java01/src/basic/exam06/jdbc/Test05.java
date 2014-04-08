@@ -2,25 +2,38 @@ package basic.exam06.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-public class Test01 {
+/* delete 요청
+ * 	- executeUpdate() 사용
+ * 
+ * delete SQL
+ * 	- delete from 테이블명 where 조건
+ */
+
+public class Test05 {
 
 	public static void main(String[] args) throws Exception {
 		// 1. 드라이버 로딩 
-		//	: java.jdbc.Driver 구현체를 로딩 => JDBC 드라이버 관리자에 등록
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		// 2. DB 커넥션 객체 가져오기
-		//	- Driver로부터 직접 Connection 객체를 얻지 않는다.
-		//	=> DriverManager에게 요청 => Driver의 connect() 호출
-		//	=> Driver는 Connection 객체를 리턴 => DriverManager는 받은 걸 리턴.
 		Connection con = DriverManager.getConnection(
 				"jdbc:mysql://192.168.200.91:3306/studydb",		// jdbc URL 
 				"study", 				// username
 				"study");				// password
 		
-		System.out.println("[강진]오호라.. 연결되었다!");
+		// 3. Connection으로부터 Statement 구현체를 얻는다.
+		Statement stmt = con.createStatement();
 		
+		// delete from SE_SUBJS where SNO=2
+		stmt.executeUpdate(
+				"delete from SE_SUBJS where SNO=2");
+		
+		System.out.println("삭제 성공!");
+		
+		stmt.close();
 		con.close();		// 서버에 연결 종료를 호출한다.
 		// 만약, close()를 호출하지 않으면 서버는 타임아웃 될 때까지 연결을 유지한다.
 	}
