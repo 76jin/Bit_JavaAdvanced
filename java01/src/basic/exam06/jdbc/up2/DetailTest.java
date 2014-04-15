@@ -4,16 +4,18 @@ import java.util.Scanner;
 
 
 /* SubjectDao 사용 */
-public class DeleteTest {
+public class DetailTest {
 
 	public static void main(String[] args) throws Throwable {
 		
 		SubjectDao dao = new SubjectDao();
 		Scanner scanner = new Scanner(System.in);
 		
-		dao.delete( Integer.parseInt(scanner.nextLine()) );
+		SubjectVo subject = dao.detail( Integer.parseInt(scanner.nextLine()) );
 		
-		System.out.println("삭제 성공!");
+		System.out.println(subject.no);
+		System.out.println(subject.title);
+		System.out.println(subject.description);
 		
 		scanner.close();
 	}
