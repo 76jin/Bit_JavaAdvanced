@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Education Management System</title>
+<style>
+body {
+color : white;
+background-image: url("http://cfs7.blog.daum.net/original/19/blog/2007/09/21/14/36/46f35827afdfa&filename=%EB%B0%94%ED%83%95%ED%99%94%EB%A9%B4-50.jpg");
+background-repeat:no-repeat;
+font-family: "Helvetica Neue",Helvetica,sans-serif;
+font-size: 14px;
+margin: 0;
+padding: 0;
+}
+
+#rainb {
+ background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiPgogICAgICAgICAgICA8cmVjdCB4PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMTcyMzI3Ii8+CiAgICAgICAgICAgIDxyZWN0IHg9IjQiIHdpZHRoPSI3MyIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMTkzNzJjIi8+CiAgICAgICAgICAgIDxyZWN0IHg9Ijc3IiB3aWR0aD0iMzAiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzMyNzM0NCIvPgogICAgICAgICAgICA8cmVjdCB4PSIxMDciIHdpZHRoPSI2IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM0MzdlNGMiLz4KICAgICAgICAgICAgPHJlY3QgeD0iMTEzIiB3aWR0aD0iMTEiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6Izg2OTk1NiIvPgogICAgICAgICAgICA8cmVjdCB4PSIxMjQiIHdpZHRoPSIzNiIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojYjA4ZjQyIi8+CiAgICAgICAgICAgIDxyZWN0IHg9IjE2MCIgd2lkdGg9IjU3IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNiNDY4MzkiLz4KICAgICAgICAgICAgPHJlY3QgeD0iMjE3IiB3aWR0aD0iMTgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2E0Mzk0MSIvPgogICAgICAgICAgICA8cmVjdCB4PSIyMzUiIHdpZHRoPSIzIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM5YzJjNTIiLz4KICAgICAgICAgICAgPHJlY3QgeD0iMjM4IiB3aWR0aD0iMyIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojYmI0MjZiIi8+CiAgICAgICAgICAgIDxyZWN0IHg9IjI0MSIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiM4YTJmNWMiLz4KICAgICAgICAgICAgPHJlY3QgeD0iMzE2IiB3aWR0aD0iMjQiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzZkNDE2ZCIvPgogICAgICAgICAgICA8cmVjdCB4PSIzNDAiIHdpZHRoPSI0MiIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojNDEzMjY0Ii8+CiAgICAgICAgICAgIDxyZWN0IHg9IjM4MiIgd2lkdGg9IjIiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzI5NDE2ZSIvPgogICAgICAgICAgICA8cmVjdCB4PSIzODQiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojNTY5MGE1Ii8+CiAgICAgICAgICAgIDxyZWN0IHg9IjQxMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiMyZTg0OWQiLz4KICAgICAgICAgICAgPHJlY3QgeD0iNDIwIiB3aWR0aD0iNDgiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzI3NjY4NiIvPgogICAgICAgICAgICA8cmVjdCB4PSI0NjgiIHdpZHRoPSIyNiIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojMjM0MzZlIi8+CiAgICAgICAgICAgIDxyZWN0IHg9IjQ5NCIgd2lkdGg9IjYiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6IzE0MmEwNiIvPgogICAgPC9zdmc+Cg==");
+ background-repeat: repeat-x;
+ background-position: top left;
+ display: block;
+ width: 100%;
+ height: 10px;
+ position: relative;
+z-index: 1;
+}
+#topmenu {
+margin-top: 15px;
+margin-bottom: 5px;
+height: 60px;
+}
+#mune {
+margin-left: 200px;
+padding: 0 40px;
+text-align:center;
+}
+
+.me {
+font-family: "Helvetica Neue",Helvetica,sans-serif;
+float: left;
+font-weight: 700;
+color: white;
+cursor: pointer;
+list-style: none;
+display: block;
+padding: 15px 13px;
+font-size: 16px;
+width: 90px;
+height: 49px;
+}
+#toptext {
+}
+#p{
+text-align: center;
+font-family: "Helvetica Neue",Helvetica,sans-serif;
+font-size: 48px;
+color: black;
+}
+#box {
+width: 740px;
+height: 330px;
+margin: auto;
+}
+#main {
+width: 340px;
+height: 330px;
+float: left;
+background: rgba(0,0,0,0.5);
+border-radius: 2px;
+padding: 20px;
+color: #ccc;
+margin: 0;
+}
+#key {
+width: 330px;
+height: 290px;
+float: right;
+}
+.simple {
+border: 0 none;
+border-radius: 2px;
+padding: .66em .95em;
+font-size: 16px;
+line-height: 1.2;
+display: block;
+width: 90%;
+margin-bottom: 16px;
+}
+.row1 {
+width: 44%;
+float: left;
+margin-right: 30px;
+}
+.row2 {
+width: 42%;
+float: left;
+}
+.row3 {
+
+}
+#btnAdd {
+display: inline-block;
+cursor: pointer;
+padding: 7px 10px;
+font-weight: 700;
+line-height: 1;
+color: #fff;
+background: #345;
+border: 0;
+border-radius: 4px;
+-webkit-appearance: none;
+width: 90%;
+cursor: pointer;
+background: #3671b5;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#btnAdd:HOVER {
+	background: #4bf;
+	width: 90%;
+cursor: pointer;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#btnList {
+display: inline-block;
+cursor: pointer;
+padding: 7px 10px;
+font-weight: 700;
+line-height: 1;
+color: #fff;
+background: #345;
+border: 0;
+border-radius: 4px;
+-webkit-appearance: none;
+width: 90%;
+cursor: pointer;
+background: #3671b5;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#btnList:HOVER {
+  background: #4bf;
+  width: 90%;
+cursor: pointer;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#btnCancel {
+float:left;
+display: inline-block;
+cursor: pointer;
+padding: 7px 10px;
+font-weight: 700;
+line-height: 1;
+color: #fff;
+background: #345;
+border: 0;
+border-radius: 4px;
+-webkit-appearance: none;
+width: 50%;
+cursor: pointer;
+background: #3671b5;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#btnCancel:HOVER {
+
+  background: #4bf;
+  width: 50%;
+cursor: pointer;
+color: #fff!important;
+padding: 10px 20px!important;
+border-radius: 4px;
+font-size: 16px!important;
+line-height: 22px!important;
+font-weight: 700;
+}
+#row3 {
+float: left;
+width: 170px;
+}
+
+
+</style>
+</head>
+<body>
+<div id="rainb"></div>
+<div id="topmenu"><div id="menu">
+<ul>
+  <li class="me"><a href="/semsx/subject/list.bit?pageNo=1&pageSize=10" style="text-decoration:none">Subject</a></li>
+  <li class="me"><a href="/semsx/course/list.bit?pageNo=1&pageSize=10"style="text-decoration:none">Course</a></li>
+  <li class="me"><a href="/semsx/user/list.bit?pageNo=1&pageSize=10" style="text-decoration:none">Users</a></li>
+</ul>
+</div></div>
+<div id="toptext"><p id="p">Course</p></div>
+<div id="center">
+<div id="box">
+<div id="main"><div>
+<form class="form" action="insert.bit" method="post">
+<div class="row"><input type="text" class="simple" name="title" placeholder="강의명"></div>
+<div class="row"><textarea cols="10" rows="7" class="simple" name="description" placeholder="강의설명을 적어주세요."></textarea></div>
+<div class="row"><input type="text" class="simple" name="hours" placeholder="강의시간"></div>
+
+<div id="row3"><input type="submit" id="btnAdd" value="sign up"></div>
+<div id="row4"><input type="reset" id="btnCancel" value="Cancel"></div>
+</form>
+</div></div>
+<div id="key">
+  <a href="list.bit?pageNo=1&pageSize=10" style="text-decoration:none"><input type="submit" id="btnList" value="강의리스트 바로가기"></a>
+  </div>
+
+
+</div>
+</div>
+<div id="footer"></div>
+</body>
+</html>
