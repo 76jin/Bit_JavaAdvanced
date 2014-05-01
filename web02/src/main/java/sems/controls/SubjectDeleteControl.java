@@ -1,5 +1,6 @@
 package sems.controls;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +11,15 @@ import sems.dao.SubjectDao;
 @Controller
 @RequestMapping("/subject")
 public class SubjectDeleteControl {
+	
+	static Logger log = Logger.getLogger(SubjectDeleteControl.class);
+	
 	@Autowired
 	SubjectDao subjectDao;
+	
+	public SubjectDeleteControl() {
+		log.debug("SubjectDeleteControl 생성됨");
+  }
 	
 	// 파라미터가 1개일 때만 생략가능해서 value 라고 적어줌.
 	@RequestMapping(value="/delete", 

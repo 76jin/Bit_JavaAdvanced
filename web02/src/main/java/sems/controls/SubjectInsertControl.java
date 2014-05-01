@@ -1,5 +1,6 @@
 package sems.controls;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +11,16 @@ import sems.vo.SubjectVo;
 
 @Controller
 public class SubjectInsertControl {
+	
+	static Logger log = Logger.getLogger(SubjectInsertControl.class);
+	
+	
 	@Autowired
 	SubjectDao subjectDao;
+	
+	public SubjectInsertControl() {
+		log.debug("SubjectInsertControl 생성됨");
+  }
 
 	// 메서드가 void 이면 RequestMapping의 value와 동일하게 설정된다.
 	@RequestMapping(value="/subject/insert", 

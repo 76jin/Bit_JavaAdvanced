@@ -1,10 +1,9 @@
 package sems.controls;
 
 import java.util.List;
-import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +25,15 @@ import sems.vo.SubjectVo;
 // @RequestParam 애노테이션 사용
 @Controller
 public class SubjectListControl {
+	
+	static Logger log = Logger.getLogger(SubjectListControl.class);
+	
 	@Autowired
 	SubjectDao subjectDao;
+	
+	public SubjectListControl() {
+		log.debug("SubjectListControl 생성됨");
+	}
 
 	// Model : 결과를 저장할 바구니
 	/* 스프링 MVC 프레임워크 규칙에 다라 페이지 컨트롤러 만들기

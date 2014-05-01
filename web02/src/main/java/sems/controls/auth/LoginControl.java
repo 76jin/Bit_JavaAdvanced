@@ -1,21 +1,16 @@
 package sems.controls.auth;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import sems.controls.PageController;
 import sems.dao.DaoException;
 import sems.dao.UserDao;
 import sems.vo.UserVo;
@@ -23,8 +18,15 @@ import sems.vo.UserVo;
 @Controller
 @RequestMapping("/auth/login")
 public class LoginControl {
+	
+	static Logger log = Logger.getLogger(LoginControl.class);
+	
 	@Autowired
 	UserDao userDao;
+	
+	public LoginControl() {
+		log.debug("LoginControl 생성됨");
+	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String loginForm() {		// 로그인 폼 출력
