@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import sems.dao.StudentDao;
 import sems.dao.UserDao;
+import sems.services.StudentsService;
 import sems.vo.StudentVo;
 
 @Controller
@@ -30,15 +31,7 @@ public class StudentControl {
 	ServletContext servletContext;
 	
 	@Autowired
-	UserDao userDao;
-	
-	@Autowired
-	StudentDao studentDao;
-	
-	// 실제 아래의 인스턴스 변수에 주입되는 객체는 
-	// beans.xml에서 설정한 DataSourceTransactionManager 이다.
-	@Autowired
-	PlatformTransactionManager txManager;
+	StudentsService studentService;
 	
 	// 기본 정보 입력폼 출력
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
@@ -71,32 +64,8 @@ public class StudentControl {
 	// 기존에 입력한 기본 정보와 추가 정보를 DB에 저장
 	@RequestMapping(value="/insert4", method=RequestMethod.POST)
 	public String insert4(@ModelAttribute("student") StudentVo student) {
-		// 1. 트랜잭션을 정의한다.
-		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-		
-		// 1)트랜잭션의 이름
-		def.setName("tx1");
-		
-		// 2) 트랜잭션 관리 정책 (트랜잭션 반드시 요구됨 정책)
-		// 		- Propagation : 전파하다.
-		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-		
-		// 2. 트랜잭션 관리자로부터 트랜잭션 핸들러 얻기
-		TransactionStatus status = txManager.getTransaction(def);
-		try {
-			userDao.insert(student); // StudentVo는 UserVo의 자식이므로 형변환 가능
-			studentDao.insert(student);
-			
-			txManager.commit(status);
-			
-			return "/student/insert4.jsp";
-		} catch (Throwable ex) {
-			txManager.rollback(status);
-			throw new RuntimeException("학생 정보 입력 오류!", ex);
-			// 메서드에 throws를 선언하지 않아도 이 예외를 DispatcherServlet에게 전달한다.
-		}
-		
-		
+		studentService.add(student);
+		return "/student/insert4.jsp";
 	}
 
 }
