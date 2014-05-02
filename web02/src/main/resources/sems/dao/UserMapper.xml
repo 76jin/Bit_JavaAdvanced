@@ -29,4 +29,19 @@
     where EMAIL=#{email} and PWD=#{password}
   </select>
   
+  <!-- insert하고 자동 증가된 UNO 값을 파라미터값의 setNo에 꼽아줘 -->
+  <insert id="insert" parameterType="userVo"
+      useGeneratedKeys="true" keyColumn="UNO" keyProperty="no">
+    insert into SE_USERS 
+          (NAME,EMAIL,PWD,TEL,FAX,POSTNO,ADDR,PHOT_PATH)
+    values (#{name}, 
+            #{email},
+            #{password},
+            #{tel},
+            #{fax},
+            #{postNo},
+            #{address},
+            #{photoPath})
+  </insert>
+  
 </mapper>
