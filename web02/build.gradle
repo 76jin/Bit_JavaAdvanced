@@ -21,6 +21,7 @@ repositories {
 // providedCompile - 컴파일할 때 사용할 라이브러리 지정. 배포 파일에서 제외.
 // testCompile - 단위 테스트 컴파일할 때 사용할 라이브러리 지정. 배포 파일에서 제외.
 dependencies {
+	compile 'com.google.code.gson:gson:2.2.4'
 	compile 'org.mybatis:mybatis-spring:1.2.2'
 	compile 'org.mybatis:mybatis:3.2.7'
 	compile 'org.springframework:spring-jdbc:4.0.3.RELEASE'

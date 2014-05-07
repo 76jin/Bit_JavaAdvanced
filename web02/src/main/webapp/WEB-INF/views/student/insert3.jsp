@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>학생 등록 확인</h1>
 <h2>기본 정보</h2>
 이름:${student.name}<br>
@@ -35,7 +35,7 @@
   <input type="reset" value="취소" class="btn btn-primary">
 </form>
 
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>

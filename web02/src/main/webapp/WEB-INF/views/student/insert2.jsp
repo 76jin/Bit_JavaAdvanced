@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>학생 등록</h1>
 <form action="insert3.bit" method="post" role="form">
 <h2>추가 정보</h2>
@@ -49,7 +49,7 @@
 <input type="reset" value="취소" class="btn btn-primary">
 </form>
 
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>

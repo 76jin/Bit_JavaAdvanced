@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import sems.dao.DaoException;
 import sems.dao.UserDao;
+import sems.services.AuthService;
+import sems.services.UserGroup;
 import sems.vo.UserVo;
 
 @Controller
@@ -26,13 +28,16 @@ public class AuthControl {
 	@Autowired
 	UserDao userDao;
 	
+	@Autowired
+	AuthService authService;
+	
 	public AuthControl() {
 		log.debug("AuthControl 생성됨");
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String loginForm() {		// 로그인 폼 출력
-		return "/auth/login.jsp";
+		return "auth/login";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -44,16 +49,10 @@ public class AuthControl {
 			HttpServletResponse response) {	 // 로그인 수행, 파라미터는 프런트 컨트롤러가 알아서 꼽아줌
 		try {
 			
-			UserVo userVo = null;
-			try {
-				HashMap<String,String> params = new HashMap<String,String>();
-				params.put("email", email);
-				params.put("password", password);
-				
-				userVo = userDao.getUser(params);
-
-			} catch (DaoException e) {		// 로그인 실패!
-				return "redirect:login.bit";
+			UserVo userVo = authService.getLoginUser(saveEmail, password, UserGroup.STUDENT);
+			
+			if (userVo == null) {
+				throw new RuntimeException("로그인 실패!");
 			}
 
 			// 로그인 성공인 경우 처리

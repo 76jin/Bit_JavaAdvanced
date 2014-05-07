@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>과목 입력</h1>
 <form action="insert.bit" method="post" role="form">
 <div class="form-group">
@@ -30,7 +30,7 @@
 <input type="submit" value="등록" class="btn btn-primary">
 <input type="reset" value="취소" class="btn btn-primary">
 </form>
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>

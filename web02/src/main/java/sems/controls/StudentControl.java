@@ -36,7 +36,7 @@ public class StudentControl {
 	// 기본 정보 입력폼 출력
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public String insert() {
-		return "/student/insert.jsp";
+		return "student/insert";
 	}
 	
 	// 기본 정보 입력값 받고 => 추가 정보 입력폼 출력
@@ -49,7 +49,7 @@ public class StudentControl {
 		// 만약 객체의 이름이 @SessionAttributes에 선언되어 있다면
 		// HttpSession에 보관한다.
 		model.addAttribute("student", student);
-		return "/student/insert2.jsp";
+		return "student/insert2";
 	}
 	
 	// 추가 정보 입력값 받고 => 전체 입력값 출력
@@ -58,14 +58,14 @@ public class StudentControl {
 	//	 - 그리고 클라이언트가 보낸 데이터를 이 객체에 넣어라.
 	@RequestMapping(value="/insert3", method=RequestMethod.POST)
 	public String insert3(@ModelAttribute("student") StudentVo student) {
-		return "/student/insert3.jsp";
+		return "student/insert3";
 	}
 	
 	// 기존에 입력한 기본 정보와 추가 정보를 DB에 저장
 	@RequestMapping(value="/insert4", method=RequestMethod.POST)
 	public String insert4(@ModelAttribute("student") StudentVo student) {
 		studentService.add(student);
-		return "/student/insert4.jsp";
+		return "student/insert4";
 	}
 
 }
