@@ -32,7 +32,7 @@ public class AuthControl {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String loginForm() {		// 로그인 폼 출력
-		return "/auth/login.jsp";
+		return "auth/login";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)

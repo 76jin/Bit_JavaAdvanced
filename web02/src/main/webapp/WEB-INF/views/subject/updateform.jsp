@@ -21,7 +21,7 @@ SubjectVo subject = (SubjectVo) request.getAttribute("subject");
 </head>
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>과목 변경(EL 적용)</h1>
 <form action='update.bit' method='post' role="form">
 <div class="form-group">
@@ -45,7 +45,7 @@ SubjectVo subject = (SubjectVo) request.getAttribute("subject");
 
 <c:set var="studyClass" value="Java48$$" scope="request" />
 
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 <%-- 비추 <%@ include file="../jsp/footer.jsp" %> --%>
 </div>
 </body>

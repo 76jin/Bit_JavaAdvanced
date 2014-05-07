@@ -50,7 +50,7 @@ if (subject == null) {
 
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>과목 상세정보(EL)</h1>
 <table class="table">
 <tr>
@@ -70,7 +70,7 @@ if (subject == null) {
 <a href='delete.bit?no=${subject.no}' class="btn btn-primary">삭제</a> 
 <a href='update.bit?no=${subject.no}' class="btn btn-primary">변경</a><br>
 
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>

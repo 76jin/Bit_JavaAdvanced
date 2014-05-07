@@ -38,7 +38,7 @@ public class SubjectControl {
 			
 			List<SubjectVo> list = subjectDao.list(params);
 			model.addAttribute("list", list);
-			return "/subject/list.jsp";
+			return "subject/list";
 			
 		} catch (Throwable ex) {
 			throw new Error(ex);
@@ -50,7 +50,7 @@ public class SubjectControl {
     try {
     	SubjectVo subject = subjectDao.detail(no);
 	    model.addAttribute("subject", subject);
-	    return "/subject/detail.jsp";
+	    return "subject/detail";
 	    
     } catch (Throwable ex) {
 	    throw new Error(ex);
@@ -59,14 +59,14 @@ public class SubjectControl {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public String form() {
-			return "/subject/form.jsp";
+			return "subject/form";
 	}
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(SubjectVo vo) {
 		try {
 			subjectDao.insert(vo);
-			return "/subject/insert.jsp";
+			return "subject/insert";
 
 		} catch (Throwable ex) {
 			throw new Error(ex);
@@ -78,7 +78,7 @@ public class SubjectControl {
 		try {
 				SubjectVo subject = subjectDao.detail(no);
 				model.addAttribute("subject", subject);
-				return "/subject/updateform.jsp";
+				return "subject/updateform";
 
 		} catch (Throwable ex) {
 			throw new Error(ex);

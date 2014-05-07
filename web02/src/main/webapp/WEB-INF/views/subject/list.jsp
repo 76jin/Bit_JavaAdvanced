@@ -19,7 +19,7 @@
 
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>과목 목록(by JSTL, EL)</h1>
 <a class="btn btn-primary" href='insert.bit'>새과목</a><br>
 <table class="table">
@@ -36,7 +36,7 @@
 </c:forEach>
 
 </table>
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>

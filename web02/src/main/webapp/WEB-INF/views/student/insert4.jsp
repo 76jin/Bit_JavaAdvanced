@@ -11,11 +11,11 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="../jsp/header.jsp" />
+<jsp:include page="/jsp/header.jsp" />
 <h1>학생 등록 결과</h1>
 <p>등록 완료되었습니다.</p>
 
-<jsp:include page="../jsp/footer.jsp" />
+<jsp:include page="/jsp/footer.jsp" />
 </div>
 </body>
 </html>
