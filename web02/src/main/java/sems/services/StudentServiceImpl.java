@@ -3,9 +3,8 @@ package sems.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import sems.dao.StudentDao;
 import sems.dao.UserDao;
@@ -23,31 +22,21 @@ public class StudentServiceImpl implements StudentsService {
 	@Autowired
 	StudentDao studentDao;
 
+	/* @Transactional 애노테이션을 처리하려면,
+	 *  스프링에 트랜잭션 처리자를 등록해야 한다.
+	 *  <tx:annotation-driven />
+	 *  
+	 *  트랜잭션이 반드시 필요하다 => propagation=Propagation.REQUIRED
+	 *  에러가 발생하면 롤백하겠다 => rollbackFor=Throwable.class
+	 */
+	@Transactional(
+			propagation=Propagation.REQUIRED,
+			rollbackFor=Throwable.class)
 	@Override
 	public void add(StudentVo student) {
-		// 1. 트랜잭션을 정의한다.
-		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+		userDao.insert(student); // StudentVo는 UserVo의 자식이므로 형변환 가능
+		studentDao.insert(student);
 
-		// 1)트랜잭션의 이름
-		def.setName("tx1");
-
-		// 2) 트랜잭션 관리 정책 (트랜잭션 반드시 요구됨 정책)
-		// 		- Propagation : 전파하다.
-		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-
-		// 2. 트랜잭션 관리자로부터 트랜잭션 핸들러 얻기
-		TransactionStatus status = txManager.getTransaction(def);
-		try {
-			userDao.insert(student); // StudentVo는 UserVo의 자식이므로 형변환 가능
-			studentDao.insert(student);
-
-			txManager.commit(status);
-
-		} catch (Throwable ex) {
-			txManager.rollback(status);
-			throw new RuntimeException("학생 정보 입력 오류!", ex);
-			// 메서드에 throws를 선언하지 않아도 이 예외를 DispatcherServlet에게 전달한다.
-		}
 	}
 
 }

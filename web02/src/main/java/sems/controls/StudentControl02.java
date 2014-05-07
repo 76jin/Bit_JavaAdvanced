@@ -20,7 +20,7 @@ import sems.dao.UserDao;
 import sems.vo.StudentVo;
 
 //@Controller
-@RequestMapping("/student")
+//@RequestMapping("/student")
 @SessionAttributes("student") // student 이름을 가진 객체는 세션에 저장하라는 명령
 															// 세션에 보관될 객체의 이름을 선언
 public class StudentControl02 {
